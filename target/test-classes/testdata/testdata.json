@@ -1,0 +1,36 @@
+{
+  "Test5Login": [
+	       {
+	         "username": "ST",
+	         "password": "Welcome@12345"
+	          }
+	     ],
+  "GNEMPALL": [
+     {
+       "CreateEmpFastPath": "GNEMPALL",
+       "FirstName": "DC shashank",
+	   "LastName":"Automation",
+	   "Sex":"M",
+	   "Title":"MR",
+	   "DOB":"01/01/1990",
+	   "NationalInsurance":"AA087903A",
+	   "Zipcode":"560049",
+	   "Mobile":"7676110431",
+	   "days":"15",
+	   "months":"8",
+	   "years":"1989"
+	   
+        }
+   ],
+   
+     "HomeAddress": [
+       {
+         "address1": "212 BH",
+         "address2": "Farmers Street",
+         "address3": "Plaza Market",
+         "address4": "Add4",
+         "county": "Count",
+         "postCode": "HA3 0UX"
+       }
+     ]
+   }
