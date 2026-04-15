@@ -13,6 +13,7 @@ public class RLLoginPage extends BasePage {
 	}
 
 	public WebDriver driver;
+
 	/*
 	 * public RLLoginPage(WebDriver driver) { this.driver = driver;
 	 * PageFactory.initElements(driver, this); }
@@ -26,14 +27,12 @@ public class RLLoginPage extends BasePage {
 
 	@FindBy(xpath = "//button[@name='doLogin']")
 	public WebElement btnLogin;
-	
-	@FindBy(xpath = "//span[contains(text(), 'Continue')]")
+
+	@FindBy(xpath = "//button[@id='modal-alert-btn-close']")
 	public WebElement btnWarningContinue;
-	
+
 	@FindBy(xpath = "//span[contains(text(), 'Yes')]")
 	public WebElement btnActiveYes;
-	
-	
 
 	public void enterUserName(String name) {
 		txtusername.sendKeys(name);

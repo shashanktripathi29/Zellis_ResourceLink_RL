@@ -2,7 +2,7 @@
   "Test5Login": [
 	       {
 	         "username": "ST",
-	         "password": "Welcome@12345"
+	         "password": "Tesco@123456"
 	          }
 	     ],
   "GNEMPALL": [
@@ -25,12 +25,35 @@
    
      "HomeAddress": [
        {
-         "address1": "212 BH",
-         "address2": "Farmers Street",
-         "address3": "Plaza Market",
-         "address4": "Add4",
-         "county": "Count",
+         "address1": "212 BH address one",
+         "address2": "Farmers Street address two",
+         "address3": "Plaza Market address three",
+         "address4": "City address",
+         "county": "County address",
          "postCode": "HA3 0UX"
        }
-     ]
+     ],
+	 
+	 "BasicPayDetails":[
+		{
+			"group":"PGUKL1300",
+		    "effectivedate":"01/01/2025",
+	        "mode":"CASH"
+		}
+	 ],
+	 "CurrentPost":[
+	 	{
+	 		"DCpost":"1015",
+			"DCPostSalaried":"1003",
+			"PositionStatusSalaried":"UK3600",
+	 	    "postStartDate":"01/01/2025",
+			"PositionStatus":"NT3750",
+			"PositionStatusSalaried":"UK3600"
+	 	}
+	],
+	"EmployementDetails":[
+		 	{
+		 		"EmployeeType":"Emp"
+		 	}
+		]
    }

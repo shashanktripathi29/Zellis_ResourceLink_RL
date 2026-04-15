@@ -2,58 +2,70 @@ package com.Zellis.PageObject;
 
 import java.time.Duration;
 import java.util.List;
+import java.util.concurrent.ConcurrentHashMap.KeySetView;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import net.bytebuddy.asm.Advice.Enter;
 
 public class BasePage {
 
 	protected WebDriver driver;
 	protected WebDriverWait wait;
+	protected Actions actions;
 
 	public BasePage(WebDriver driver) {
 		this.driver = driver;
 		this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		actions = new Actions(driver);
 		PageFactory.initElements(driver, this);
 
 	}
 
-	public String randomEmail() {
+	@FindBy(xpath = "//iframe[contains(@id,'_iframe')]")
+	public WebElement iFrame;
 
-		long timestamp = System.currentTimeMillis();
-		return "user" + timestamp + "@testmail.com";
+
+	public void switchToFrame() throws InterruptedException {
+
+		wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // max 10s wait
+		Thread.sleep(1800);
+		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(iFrame));
+		
+	}
+
+	
+	public void clickLongAndSendkey(WebDriver driver, WebElement element, String elementvalue) {
+		actions = new Actions(driver);
+		actions.clickAndHold(element).pause(Duration.ofSeconds(5)).release().sendKeys(elementvalue).perform();
 
 	}
 
-	public void iFrameHandle() throws InterruptedException {
+	public void clickAndSendkey(WebDriver driver, WebElement element, String elementvalue) {
+		actions = new Actions(driver);
+		actions.clickAndHold(element).pause(Duration.ofMillis(1100)).release().sendKeys(elementvalue).perform();
 
-		List<WebElement> allIframes = driver.findElements(By.tagName("iframe"));
-
-		for (int i = 0; i < allIframes.size(); i++) {
-			WebElement iframe = allIframes.get(i);
-			// System.out.println("size " + allIframes.size());
-			String id = iframe.getAttribute("id");
-			// System.out.println("id"+iframe.getAttribute("id"));
-			if (iframe.getAttribute("id") != null && !iframe.getAttribute("id").isEmpty()) {
-				String dynamicXpath = String.format("//iframe[@id='%s']", iframe.getAttribute("id"));
-				WebElement frameByXpath = driver.findElement(By.xpath(dynamicXpath));
-				driver.switchTo().frame(frameByXpath);
-				// System.out.println("frameByXpath"+frameByXpath);
-
-			}
-		}
+	}
+	public void doubleClick(WebDriver driver, WebElement element) throws InterruptedException {
+		actions = new Actions(driver);
+		Thread.sleep(9500);
+		//actions.doubleClick(element).build().perform();
+		actions.clickAndHold(element).pause(Duration.ofMillis(900)).release().perform();
 	}
 
-	public void switchToFrame() {
-
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // max 10s wait
-	    wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(
-	            By.xpath("//iframe[contains(@id,'_iframe')]")));
-		//driver.switchTo().frame(driver.findElement(By.xpath("//iframe[contains(@id,'_iframe')]")));
+	public void jsScrollToElement(WebElement element) throws InterruptedException {
+		Thread.sleep(2000);
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+		element.click();
 
 	}
 }

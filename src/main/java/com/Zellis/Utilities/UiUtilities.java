@@ -6,10 +6,10 @@ import org.openqa.selenium.WebDriver;
 
 import com.Zellis.PageObject.BasePage;
 
-public class Utility extends BasePage{
+public class UiUtilities extends BasePage{
 	
 
-	public Utility(WebDriver driver) {
+	public UiUtilities(WebDriver driver) {
 		super(driver);
 		// TODO Auto-generated constructor stub
 	}

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<suite name="Suite">
+  <test thread-count="5" name="Test">
+    <classes>
+      <class name="com.Zellis.APItestcases.ColleagueFactApiTest"/>
+       <class name="com.Zellis.APItestcases.PayrollRunIscCodeApiTest"/>
+        <class name="com.Zellis.APItestcases.DexPayslipApiTest"/>
+       
+       
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

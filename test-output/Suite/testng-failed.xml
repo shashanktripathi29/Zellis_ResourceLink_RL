@@ -3,18 +3,17 @@
 <suite name="Failed suite [Suite]">
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="com.Zellis.testcases.CreateEmployeeAll">
+      <class name="com.Zellis.APItestcases.DexPayslipApiTest">
         <methods>
+          <include name="getDexPayslipBalance"/>
+          <include name="countDeductionsSubgroupsAndLines"/>
+          <include name="countPaymentsSubgroupsAndLines"/>
+          <include name="getDexPayslipPayments"/>
+          <include name="getDexPayslipDeduction"/>
+          <include name="verifyDexPayslipStatus"/>
           <include name="setUp"/>
-          <include name="verifyDCEmployeeCreation"/>
         </methods>
-      </class> <!-- com.Zellis.testcases.CreateEmployeeAll -->
-      <class name="com.Zellis.testcases.LoginRL">
-        <methods>
-          <include name="setUp"/>
-          <include name="verifyValidLogin"/>
-        </methods>
-      </class> <!-- com.Zellis.testcases.LoginRL -->
+      </class> <!-- com.Zellis.APItestcases.DexPayslipApiTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->
