@@ -61,7 +61,6 @@ public class DexPayslipApiTest extends BaseApiTest {
 	            System.out.println(totalLineCount);
 	        }
 	    }
-
 	    logger.info("Total Payments Subgroups: {}", subgroupCount);
 	    logger.info("Total Payments Lines across all Subgroups: {}", totalLineCount);
 
